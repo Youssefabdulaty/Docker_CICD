@@ -22,8 +22,14 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: list of files and directories 
-        run: ls -lh
+      - name: Show current directory
+        run: pwd
+
+      - name: Show files inside the container
+        run: ls -lh /app
+
+      - name: Run app.js from inside Docker image
+        run: node /app/app.js
     
       - name: Test Node.js
         run: node -e "console.log('Hello from Docker container!')"
