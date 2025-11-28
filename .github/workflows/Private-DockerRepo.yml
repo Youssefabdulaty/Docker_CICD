@@ -2,6 +2,12 @@ name: Test Private Docker Image
 
 on:
   workflow_dispatch:
+    inputs:
+      name:
+        description: "Enter name to greet"
+        required: true
+        default: Youssef
+        type: string
 
 jobs:
   test_private_docker_image:
@@ -13,5 +19,11 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     steps:
-      - name: Test app.js in youssefabdulaty container
-        run: node app.js
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Test Node.js
+        run: node -e "console.log('Hello from Docker container!')"
+
+      - name: Test script.js 
+        run: node script.js ${{ github.event.inputs.name }}
