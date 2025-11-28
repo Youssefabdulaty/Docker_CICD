@@ -16,9 +16,10 @@ jobs:
         with:
           entrypoint: /bin/sh
           args: |
-                -c "echo 'This runs inside Alpine container';"
+                -c "echo 'This runs inside Alpine container';
                 ls -la;
                 whoami;
+                "
 
       - name: run back-to ubuntu Runner vm
 
