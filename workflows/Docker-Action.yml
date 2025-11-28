@@ -1,0 +1,23 @@
+name: Run steps on Docker and Runner
+
+on:
+  workflow_dispatch:
+
+jobs:
+  hybrid_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: run command on ubuntu Runner vm
+        run: echo "This runs on ubuntu VM"
+
+      - name: run command on docker container
+        uses: docker://alpine:3.14
+        entrypoint: /bin/sh
+        args:
+          - -c
+          - |
+            echo "This runs inside Alpine container"
+
+      - name: run back-to ubuntu Runner vm
+        run: echo "This back-to ubuntu VM"
