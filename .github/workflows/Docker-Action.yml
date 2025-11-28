@@ -15,11 +15,11 @@ jobs:
         uses: docker://alpine:3.14
         with:
           entrypoint: /bin/sh
-          args: -c |
-                echo 'This runs inside Alpine container';
+          args: |
+                -c "echo 'This runs inside Alpine container';
                 ls -la;
                 whoami;
-                
+                "
 
       - name: run back-to ubuntu Runner vm
 
