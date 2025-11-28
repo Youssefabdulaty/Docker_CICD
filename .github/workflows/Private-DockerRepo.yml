@@ -22,6 +22,9 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
+      - name: list of files and directories 
+        run: ls -lh
+    
       - name: Test Node.js
         run: node -e "console.log('Hello from Docker container!')"
 
