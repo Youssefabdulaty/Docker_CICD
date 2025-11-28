@@ -15,7 +15,9 @@ jobs:
 
       - name: Only run if this is tag starting with v
         if: startsWith(github.ref, 'refs/tags/v')
-        run: echo "This is version tag: ${{ github.ref }}"
+        run: |
+            echo "This is version tag: ${{ github.ref }}"
 
       - name: Normal run
         run: echo "This runs always"
+        
