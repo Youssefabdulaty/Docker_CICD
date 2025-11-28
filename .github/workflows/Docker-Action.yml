@@ -26,5 +26,15 @@ jobs:
         run: echo "This back-to ubuntu VM"
 
 
+  dockerized_job:
+    runs-on: ubuntu-latest 
+    container: node:20
+
+    steps:
+      - name: node vesion
+        run: node --version
+      
+      - name: print vesion
+        run: echo "whole jobs run on node container"
 
 
