@@ -15,7 +15,7 @@ jobs:
         uses: docker://alpine:3.14
         with:
           entrypoint: /bin/sh
-          args: |
+          args: 
                 -c "echo 'This runs inside Alpine container';
                 ls -la;
                 whoami;
@@ -24,4 +24,5 @@ jobs:
       - name: run back-to ubuntu Runner vm
 
         run: echo "This back-to ubuntu VM"
+
 
